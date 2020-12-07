@@ -1,13 +1,11 @@
 package com.tiza.leo.redis_by_springboot;
 
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,15 +15,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author leowei
- * @date 2020/12/6  - 23:17
+ * @date 2020/12/8  - 0:06
  */
 @SpringBootTest(classes=RedisBySpringbootApplication.class)
-//@RunWith(SpringRunner.class)
-class RedisBySpringbootApplicationTest {
+public class TestStringRedisTemplate {
 
 
     //注入StringRedisTemplate
@@ -147,14 +142,4 @@ class RedisBySpringbootApplicationTest {
 
     }
 
-
 }
-
-
-
-
-
-
-
-
-
