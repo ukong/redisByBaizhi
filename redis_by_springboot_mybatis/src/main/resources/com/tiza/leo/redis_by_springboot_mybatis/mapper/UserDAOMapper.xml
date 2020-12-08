@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiza.leo.redis_by_springboot_mybatis.dao.UserDAO">
+
+    <!--开启mybatis二级缓存 type 默认为 org.apache.ibatis.cache.impl.PerpetualCache 可以不加
+    从mybatis 的本地缓存修改为 redis  缓存的思路也是 写一个 类 PerpetualCache  的类 里面的值从redis 中存取
+    -->
+  <!--  <cache></cache>-->
+   <!-- <cache type="org.apache.ibatis.cache.impl.PerpetualCache" ></cache>-->
+    <cache type="com.tiza.leo.redis_by_springboot_mybatis.cache.RedisCache"></cache>
+
+    <select id="findAll" resultType="User">
+        select id,name,age,bir from baizhi_redis_user
+    </select>
+
+    <select id="findById" parameterType="String" resultType="User">
+        select id,name,age,bir from baizhi_redis_user where id =#{id}
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from baizhi_redis_user where id=#{id}
+    </delete>
+
+
+
+</mapper>

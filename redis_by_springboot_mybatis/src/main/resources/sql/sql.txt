@@ -1,0 +1,14 @@
+/*
+SQLyog Ultimate v12.5.1 (64 bit)
+MySQL - 5.6.11
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `baizhi_redis_user` (
+	`id` varchar (60),
+	`name` varchar (150),
+	`age` int (11),
+	`bir` date
+);
+insert into `baizhi_redis_user` (`id`, `name`, `age`, `bir`) values('1','leo','11','2020-12-08');
