@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author leowei
@@ -32,6 +33,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(String id) {
          userDAO.delete(id);
+    }
+
+    @Override
+    public void save(User user) {
+        user.setId(UUID.randomUUID().toString());
+        userDAO.save(user);
     }
 
 

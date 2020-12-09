@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
+
 /**
  * @author leowei
  * @date 2020/12/8  - 21:18
@@ -45,5 +47,16 @@ public class TestUserService {
     public void testDelete(){
         userService.delete("1");
     }
+
+    @Test
+    public void testSave() {
+        User user = new User();
+        user.setName("天泽信息");
+        user.setAge(88);
+        user.setBir(new Date());
+        userService.save(user);
+    }
+
+
 
 }

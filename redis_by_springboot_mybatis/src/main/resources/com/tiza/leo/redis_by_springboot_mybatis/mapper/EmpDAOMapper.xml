@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiza.leo.redis_by_springboot_mybatis.dao.EmpDAO">
+
+   <!-- <cache></cache> --><!-- type1 mybatis自己的缓存-->
+    <!--<cache type="org.apache.ibatis.cache.impl.PerpetualCache" ></cache>--><!-- type1 mybatis自己的缓存-->
+    <!--<cache type="com.tiza.leo.redis_by_springboot_mybatis.cache.RedisCache"></cache>-->   <!--type2用redis方式仿照PerpetualCache实现缓存-->
+    <cache-ref namespace="com.tiza.leo.redis_by_springboot_mybatis.dao.UserDAO" />    <!--type3 借用userDao方式RedisCache-->
+
+    <select id="findAll" resultType="Emp">
+        select id,name from baizhi_redis_emp
+    </select>
+
+
+    <select id="findOne" parameterType="String" resultType="Emp">
+        select id,name from baizhi_redis_emp where id=#{id}
+    </select>
+
+</mapper>

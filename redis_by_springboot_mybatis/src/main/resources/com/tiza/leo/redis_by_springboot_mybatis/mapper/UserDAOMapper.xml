@@ -21,6 +21,9 @@
         delete from baizhi_redis_user where id=#{id}
     </delete>
 
+    <insert id="save" parameterType="User">
+        insert into baizhi_redis_user VALUES (#{id},#{name},#{age},#{bir})
+    </insert>
 
 
 </mapper>

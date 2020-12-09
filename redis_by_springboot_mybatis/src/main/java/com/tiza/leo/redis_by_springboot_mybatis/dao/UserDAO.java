@@ -15,7 +15,9 @@ public interface UserDAO {
 
     void delete(String id);
 
-  /*   void save(User user);
+    void save(User user);
+
+  /*
 
     void update(User user);*/
 }

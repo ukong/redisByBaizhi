@@ -12,3 +12,20 @@ create table `baizhi_redis_user` (
 	`bir` date
 );
 insert into `baizhi_redis_user` (`id`, `name`, `age`, `bir`) values('1','leo','11','2020-12-08');
+
+
+
+
+/*
+SQLyog Ultimate v12.5.1 (64 bit)
+MySQL - 5.6.11
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `baizhi_redis_emp` (
+	`id` varchar (150),
+	`name` varchar (150)
+);
+insert into `baizhi_redis_emp` (`id`, `name`) values('11','leo');
+insert into `baizhi_redis_emp` (`id`, `name`) values('22','wei');

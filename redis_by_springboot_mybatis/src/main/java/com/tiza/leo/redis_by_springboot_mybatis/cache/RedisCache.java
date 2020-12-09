@@ -4,6 +4,7 @@ import com.tiza.leo.redis_by_springboot_mybatis.util.ApplicationContextUtils;
 import org.apache.ibatis.cache.Cache;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.util.DigestUtils;
 
 /**
  * @author leowei
@@ -34,7 +35,7 @@ public class RedisCache implements Cache {
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         */
-        getRedisTemplate().opsForHash().put(id.toString(),key.toString(),value);
+        getRedisTemplate().opsForHash().put(id.toString(),getKey2MD5(key.toString()),value);
         System.out.println(" =====================================put end  ======== ");
 
     }
@@ -49,7 +50,7 @@ public class RedisCache implements Cache {
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());*/
         System.out.println("------------------------------------get end");
-        return getRedisTemplate().opsForHash().get(id.toString(), key.toString());
+        return getRedisTemplate().opsForHash().get(id.toString(), getKey2MD5( key.toString()));
     }
 
     //注意:这个方法为mybatis保留方法 默认没有实现 后续版本可能会实现
@@ -79,4 +80,10 @@ public class RedisCache implements Cache {
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         return redisTemplate;
     }
+
+    private String getKey2MD5(String key){
+        return DigestUtils.md5DigestAsHex(key.getBytes());
+    }
+
+
 }
