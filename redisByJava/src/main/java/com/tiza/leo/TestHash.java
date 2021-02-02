@@ -18,7 +18,8 @@ public class TestHash {
 
     @Before
     public void before(){
-        this.jedis = new Jedis("192.168.121.102", 7000);
+        //this.jedis = new Jedis("192.168.121.102", 7000);
+        this.jedis = new Jedis("192.168.213.41", 6379);
     }
 
     @After
